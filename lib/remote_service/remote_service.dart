@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class RemotesService {
   static var client = http.Client();
 
-  static Future<CatModel?> fetchcatchfacts() async {
+  static Future<CatModel?> fetchcatfacts() async {
     try {
       var response = await client.get(Uri.parse("https://catfact.ninja/fact"));
       if (response.statusCode == 200) {
