@@ -3,15 +3,15 @@ import 'package:cat_facts/remote_service/remote_service.dart';
 import 'package:get/get.dart';
 
 class CatController extends GetxController {
-  var dogList = <CatModel>[].obs;
+  var catList = CatModel(fact: "", length: 0).obs;
   var isLoading = true.obs;
 
-  Future getDogList() async {
+  Future getCatlist() async {
     try {
       isLoading(true);
       var data = await RemotesService.fetchcatfacts();
       if (data != null) {
-        dogList.value = data as List<CatModel>;
+        catList.value = data;
       }
     } catch (e) {
       Get.snackbar("Message", e.toString());
@@ -23,6 +23,6 @@ class CatController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getDogList();
+    getCatlist();
   }
 }

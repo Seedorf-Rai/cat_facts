@@ -1,3 +1,4 @@
+import 'package:cat_facts/binding/binding.dart';
 import 'package:cat_facts/view/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      initialBinding: ControllerBinding(),
       home: const HomeView(),
     );
   }
